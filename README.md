@@ -1,5 +1,8 @@
-# React-Redux-Starter-Create-React-App
+# ExhangeRate-React-Redux
 
-Ce repo est une copie du projet  React-Redux-Starter seulement celui ci a été installé avec la commande create-react-app
+Application exemple sur React/Redux permettant de comparer via des graphes la valeur du Dollar comparé à d'autres devises de pays qu'on sélectionne
 
-De plus les versions de react et redux y sont plus récente.
+Pour lancer se positionner dans le répertoire du code et exécuter :
+
+- npm install
+- npm start 
