@@ -2,13 +2,17 @@ import axios from 'axios';
 
 export const GET_COUNTRIES = 'GET_COUNTRIES';
 export const GET_RATE_EXCHANGE = 'GET_RATE_EXCHANGE';
+export const GET_SUPPORTED_CURRENCIES = 'GET_SUPPORTED_CURRENCIES';
 
-export function fetchCountries(){
+export function fetchCountries(){    
 
-    return function(dispatch){
-        axios.get('https://restcountries.eu/rest/v2/all').then(axiosResponse=>{
-            dispatch({type: GET_COUNTRIES, payload: axiosResponse.data });
-        });
+    return function(dispatch, getState){
+        axios.get('https://api.exchangerate.host/latest').then(axiosResponse=>{
+            dispatch({ type: GET_SUPPORTED_CURRENCIES, payload: Object.keys(axiosResponse.data.rates)});
+            axios.get('https://restcountries.eu/rest/v2/all').then(axiosResponse=>{
+                dispatch({type: GET_COUNTRIES, payload: {countries: axiosResponse.data, supportedCurrencies: getState().supportedCurrencies} } );
+            });
+        });       
     }   
 }
 
