@@ -21,7 +21,7 @@ function getCountriesInfo(data){
             code: country.alpha3Code
         }
     }).filter( country => {
-        return data.supportedCurrencies.indexOf(country.currencyCode) > -1; 
+        return data.supportedCurrencies.includes(country.currencyCode); 
     });
 
 }
