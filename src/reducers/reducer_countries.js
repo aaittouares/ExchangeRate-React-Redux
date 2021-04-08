@@ -1,5 +1,4 @@
 import { GET_COUNTRIES } from '../actions';
-import { supportedCurrencyCode } from '../supportedCurrencies';
 
 const initialState = [];
 
@@ -14,7 +13,7 @@ export default function (state = initialState, action){
 
 function getCountriesInfo(data){
 
-    return data.map(country=>{
+    return data.countries.map(country=>{
         return {
             name: country.name,
             currencyCode: country.currencies[0].code,
@@ -22,7 +21,7 @@ function getCountriesInfo(data){
             code: country.alpha3Code
         }
     }).filter( country => {
-        return supportedCurrencyCode.indexOf(country.currencyCode) > -1; 
+        return data.supportedCurrencies.includes(country.currencyCode); 
     });
 
 }
