@@ -13,7 +13,7 @@ class RateExchangeListItem extends Component {
                 <td>
                     {name}
                     <br/>
-                    <img src={flag} height='60' width='100'/>
+                    <img src={flag} alt='' height='60' width='100'/>
                 </td>
                 <td className='col-md-12'>
                     <AreaChart data={formatData(rates, currencyCode)} xtitle='Date' ytitle={currencyCode}/>

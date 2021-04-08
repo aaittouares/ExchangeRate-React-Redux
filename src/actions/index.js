@@ -12,9 +12,10 @@ export function fetchCountries(){
     }   
 }
 
+
 export function fetchRateExchange(country){
     return function (dispatch){
-        axios.get(`https://api.exchangeratesapi.io/history?start_at=${getLastMonth()}&end_at=${formatedDate(new Date())}&base=USD&symbols=${country.currencyCode}`)
+        axios.get(`https://api.exchangerate.host/timeseries?start_date=${getLastMonth()}&end_date=${formatedDate(new Date())}&base=USD&symbols=${country.currencyCode}`)
         .then(axiosResponse=>{
             dispatch({
                 type:GET_RATE_EXCHANGE,
